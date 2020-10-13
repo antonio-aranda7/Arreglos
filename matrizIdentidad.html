@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Matriz Identidad</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border:1px solid #7f7f7f;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <script>
+
+        function obtenerTamaño() 
+        {
+            var table = document.getElementById("demo2") ;
+            var tamaño_matriz = new Array(document.getElementById("texto1").value);
+
+            tamaño_matriz.length = document.getElementById("texto1").value;
+
+            document.getElementById("demo").innerHTML = tamaño_matriz.length + "*" + tamaño_matriz.length;
+
+            var tbl = document.createElement("table");
+
+            for (var r = 0; r < tamaño_matriz.length; r++) 
+            {
+                var row = document.createElement("tr");
+
+                // create cells in row
+                for (var c = 0; c < tamaño_matriz.length; c++) 
+                {
+                    var cell = document.createElement("td");
+
+                    if (r === c) 
+                    {
+                        var cellText = document.createTextNode([r][c] = "1");
+
+                        cell.appendChild(cellText);
+                    }
+                    if (r !== c) 
+                    {
+                        var cellText = document.createTextNode([r][c] = "0");
+                        cell.appendChild(cellText);
+
+                    }
+
+                    row.appendChild(cell);
+                    tbl.appendChild(row); // add the row to the end of the table body
+                }
+                table.appendChild(tbl);
+            }
+
+        }
+
+    </script>
+
+
+</head>
+
+<body name="body" text=white bgcolor="black">
+<h3 style="text-align: center;">Matriz Identidad</h3>
+    <br>
+    <p style="text-align: center;"> Tamaño de la Matriz: </p>
+    <p id="demo"></p>
+    <table id="demo2"></table>
+    <p id="demo3"></p>
+    <input type="number" id="texto1">
+
+
+<button onclick="obtenerTamaño()">Crear matriz</button>
+<a href="Arreglos.html" >Regresar al menu</a>
+<br>
+<div id="wraped" style="text-align: center;"></div>
+
+</body>
+
+</html>

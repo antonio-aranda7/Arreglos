@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas de Arreglos</title>
+</head>
+<body name="body" text=black bgcolor="white">
+    <!--<link rel="stylesheet" href="matrizI.css">  
+    <div id="div1"></div>-->
+    <!--<script type = "text/javascript" src="matrizI.js"></script> -->
+    <h3>Problemas de Arreglos</h3>
+
+    <ul><a href="matrizIdentidad.html">Crear una Matriz Identidad</a></ul>
+    <ul><a href="matrizTriangular.html">Validar una Matriz cuadrada</a></ul>
+    <ol><a href="trianguloPascal.html">Crear un Triangulo de Pascal</a></ol>
+
+    <button onclick="crearCliente()">Agregar Cliente</button>
+
+    <script>
+
+        var op;
+        var opc = 0;
+
+        function crearCliente()
+        {
+            
+            do
+            {
+                op=prompt("Introduce un numero de menú 1.Agregar 2.Salir")
+
+                switch(parseInt(op))
+                {
+                    case 1:
+                        cliente();
+                    break;
+
+                }
+        
+            }while(op!=2);
+        
+            function cliente()
+            {
+                var cliente = new Array (3);
+                cliente[0] = prompt("Introduce un Nombre")
+                cliente[1] = prompt("Introduce un apellido")
+                cliente[2] = prompt("Introduce una edad")
+
+                var clientes = new Array();
+                if(clientes.length>0)
+                {
+                    for(var i=0;i<clientes.length;i++)
+                {
+                    clientes[i] = cliente;
+                } 
+                }
+                else
+                {
+                    clientes[0] = cliente;
+                }
+                if(parseInt(opc)==0){
+                opc=1    
+                document.write("<table border='1'>");
+                    document.write("<tr>");
+                        document.write("<td width=200>Nombre</td><td>Apellido</td><td>Edad</td>"); 
+                    document.write("</tr>");
+                }
+                else
+                {
+                    document.write("<table border='1'>"); 
+                }
+                for(var i=0;i<clientes.length;i++)
+                {
+                    document.write("<tr>"); 
+                    for(var j=0;j<clientes[i].length;j++)
+                    {
+                        document.write("<td width=200>"); 
+                        document.write(clientes[i][j]);  
+                        document.write("</td>"); 
+                    }
+                    document.write("</tr>");   
+                }
+                document.write("</table>"); 
+            }
+            document.write("Saliste");
+        }
+        
+    </script>
+</body>
+</html>

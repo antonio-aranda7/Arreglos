@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Matriz Identidad</title>
+    
+    <script>
+
+        function obtenerTamaño()
+        {
+            var tamaño_matriz = new Array(document.getElementById("texto1").value);
+
+            tamaño_matriz.length = document.getElementById("texto1").value;
+            document.getElementById("demo").innerHTML = tamaño_matriz.length + "*" + tamaño_matriz.length;
+
+            var codigoHTML="<table  id='matriz1' border=\"1\" width='50%' class='valores'><tbody>";
+            for (var i = 0; i < tamaño_matriz.length; i++) 
+            {
+                codigoHTML+="<tr>";
+                for (var j = 0; j < tamaño_matriz.length; j++) 
+                {
+                    codigoHTML+="<td class='valor'>"+''+"</td><!--celda-->";
+                }
+                codigoHTML+="</tr>";
+            }
+            codigoHTML+="</tbody></table>";
+
+            document.getElementById("wraped").innerHTML = codigoHTML;
+            document.getElementById("matriz1").contentEditable = true;
+            document.getElementById("btnComparar").hidden = false;
+        }
+        
+        function compararMatriz()
+        {
+            var valores_matriz = new Array();
+
+            document.querySelectorAll('.valores').forEach(function (e)
+            {
+                var fila = 
+                {
+                    valor : e.querySelector().innerText
+                };
+                valores_matriz.push(fila);
+            })
+            console.log(valores_matriz)
+            ;
+
+        }
+    </script>
+</head>
+
+<body name="body" text=white bgcolor=black>
+<h3>Matrices Triangulares</h3>
+<p> Tamaño de la Matriz: </p>
+
+<p id="demo"></p>
+<input type="number" id="texto1">
+
+<button onclick="obtenerTamaño()">Crear matriz</button>
+<button onclick="compararMatriz()" id="btnComparar" hidden> Compara que sea Matriz de Identidad </button>
+<a href="Arreglos.html" >Regresar al menu</a>
+
+
+<div class="" id="wraped"></div>
+
+</body>
+</html>
+
