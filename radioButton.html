@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="radioButton.css">
+    <script> type="text/javascript" src="radioButton.js"</script>
+</head>
+<body>
+    <h2>Página de ejemplo de acceso a RadioButtons</h2>
+    <p>¿Esta usted a punto de dormirse?</p>
+    <input type="radio" value="si" name="pregunta" id="pregunta_si" onclick="valida()" /> SÍ
+    <input type="radio" value="no" name="pregunta" id="pregunta_no" onclick="valida()"/> NO
+    <input type="radio" value="nsnc" name="pregunta" id="pregunta_nsnc" onclick="valida()"/> NS/NC
+
+    <p id="demo"></p>
+
+    <script>
+        
+    var elementos = document.getElementsByName("pregunta");
+
+    function valida()
+    {
+        for(var i=0; i<elementos.length; i++) 
+        {
+            if (elementos[i].checked)
+            {
+            document.getElementById("demo").innerHTML = " Elemento: " + elementos[i].value + "\n Seleccionado" 
+            }
+        }
+    }   
+        
+    </script>
+
+
+</body>
+</html>

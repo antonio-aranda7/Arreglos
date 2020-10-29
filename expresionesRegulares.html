@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Expresiones Regulares</title>
+    <style>
+        
+    </style>
+    <script>
+
+        function obtenerTamaño() 
+        {
+            var txt = new Array(document.getElementById("textoPlaca").value);
+
+            txtPlaca = document.getElementById("textoPlaca").value;
+
+            
+
+            /*Placas de Coche AAA-000-A*/
+            if( txtPlaca == null || txtPlaca.length == 0 || !(/^\[A-Z]{3}-\d{3}-\[A-Z]$/.test(txtPlaca)) ) 
+            {
+            return false;
+            }
+            document.getElementById("demoPlaca").innerHTML = num.length + "*" + num.length;
+
+            var txt2 = new Array(document.getElementById("texto2").value);
+
+            txt2 = document.getElementById("texto2").value;
+
+            if( txt2 == null || txt2.length == 0 || !(/^\?(,d{3})*\d{0-2}\?(.d{0,3})$/.test(txt2)) ) 
+            {
+            return false;  
+            }
+
+            document.getElementById("demo2").innerHTML = "Lo que escribiste como: "+txt +" es erroneo";
+
+            
+        }
+
+        function validacion()
+        {
+            if (/*condicion que debe cumplir el primer campo del formulario*/) 
+            {
+                // Si no se cumple la condicion...
+                alert('[ERROR] El campo debe tener un valor de...');
+                return false;
+            }
+            // Si el script ha llegado a este punto, todas las condiciones
+            // se han cumplido, por lo que se devuelve el valor true
+            return true;
+            
+            if(validacion.value=true)
+            {
+                var txt = new Array(document.getElementById("demo").value);
+
+                txt = document.getElementById("demo").value;
+
+                document.getElementById("demo").innerHTML ="Jeancarlo Antonio Aranda Cen";
+            }
+        }
+
+    </script>
+
+</head>
+
+<body name="body" text=white bgcolor="black">
+
+    <h3 style="text-align: center;">Expresiones Regulares</h3>
+
+    <p > Rellena el formulario</p>
+
+   <input id="demo">
+
+    <form action="obtenerTamaño()" method="" id="formulario" name="" onsubmit="return validacion()"></form>
+
+        <input type="text" id="textoPlaca">
+        <input id="demoPlaca">
+        <br>
+        <input type="text" id="texto2">
+        <input id="demo2">
+        <br>
+        <input type="button" value="Enviar" onclick="this.disabled=true; 
+        this.value=’Enviando...’; this.form.submit()" />
+
+    </form>
+
+</body>
+
+</html>
